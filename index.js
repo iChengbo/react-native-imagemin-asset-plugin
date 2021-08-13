@@ -2,14 +2,14 @@
  * @Author: iChengbo
  * @Date: 2021-08-13 14:04:48
  * @LastEditors: iChengbo
- * @LastEditTime: 2021-08-13 15:35:53
+ * @LastEditTime: 2021-08-13 15:58:21
  * @FilePath: /react-native-imagemin-asset-plugin/index.js
  */
 const imagemin = require('imagemin');
 const imageminPngquant = require('imagemin-pngquant');
 const path = require('path');
 
-const cacheDir = '.img_cache';
+const cacheDir = 'img_cache';
 
 async function compress(files, destination) {
     return await imagemin(files, {

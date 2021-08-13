@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/iChengbo/react-native-imagemin-asset-plugin#readme",
   "devDependencies": {
-    "imagemin": "^8.0.1",
+    "imagemin": "7.0.1",
     "imagemin-pngquant": "^9.0.2"
   }
 }

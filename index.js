@@ -2,7 +2,7 @@
  * @Author: iChengbo
  * @Date: 2021-08-13 14:04:48
  * @LastEditors: iChengbo
- * @LastEditTime: 2021-08-13 14:05:52
+ * @LastEditTime: 2021-08-13 14:50:48
  * @FilePath: /react-native-imagemin-asset-plugin/index.js
  */
 const imagemin = require('imagemin');
@@ -28,7 +28,11 @@ async function reactNativeAssetPlugin(assetData) {
         reg.test(assetData.files[0]) &&
         !/node_modules/.test(assetData.fileSystemLocation)
     ) {
-        const outputDirectory = path.join(assetData.fileSystemLocation, cacheDir);
+        const outputDirectory = path.join(
+            __dirname,
+            cacheDir,
+            assetData.fileSystemLocation.replace(__dirname, ''),
+        );
         const tmpFiles = await compress(assetData.files, outputDirectory);
         const outFiles = tmpFiles.map(file => {
             return file.destinationPath;

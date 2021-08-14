@@ -1,11 +1,14 @@
 {
   "name": "react-native-imagemin-asset-plugin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "index.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/iChengbo/react-native-imagemin-asset-plugin.git"

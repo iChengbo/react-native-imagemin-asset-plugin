@@ -1,13 +1,20 @@
 {
   "name": "react-native-imagemin-asset-plugin",
   "version": "1.0.3",
-  "description": "",
+  "description": "Asset plugin for compress images in React Native",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
     "index.js"
+  ],
+  "keywords": [
+    "react-native",
+    "compress",
+    "image",
+    "assetPlugin",
+    "imagemin"
   ],
   "repository": {
     "type": "git",

@@ -11,7 +11,7 @@ npm install --save-dev react-native-imagemin-asset-plugin
 
 ### metro
 
-Add 'react-native-imagemin-asset-plugin' to the list of assetPlugins in your metro.config.js file under the transformer section.
+Add `react-native-imagemin-asset-plugin` to the list of `assetPlugins` in your `metro.config.js` file under the transformer section.
 
 For example;
 

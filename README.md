@@ -41,10 +41,12 @@ module.exports = {
     // ...
     assetPlugins: ['react-native-imagemin-asset-plugin'],
     imageminAssetPlugin: {
-        pngquant: {
-            quality: [0.3, 0.5],
-            verbose: true,
-        },
+      pngquant: {
+        quality: [0.6, 0.8],
+      },
+      mozjpeg: {
+        quality: 60,
+      },
     },
   },
 };

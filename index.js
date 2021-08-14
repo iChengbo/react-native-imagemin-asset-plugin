@@ -1,10 +1,3 @@
-/*
- * @Author: iChengbo
- * @Date: 2021-08-13 14:04:48
- * @LastEditors: iChengbo
- * @LastEditTime: 2021-08-14 22:36:17
- * @FilePath: /react-native-imagemin-asset-plugin/index.js
- */
 const imagemin = require('imagemin');
 const imageminPngquant = require('imagemin-pngquant');
 const imageminMozjpeg = require('imagemin-mozjpeg');
@@ -21,7 +14,7 @@ const defaultConfig = {
  * @param {*} assetData
  * @returns
  */
-async function reactNativeAssetPlugin(assetData) {
+async function _imageminAssetPlugin(assetData) {
     const metroConfigPath = path.join(process.cwd(), 'metro.config.js');
     let metroConfig;
     try {
@@ -53,4 +46,4 @@ async function reactNativeAssetPlugin(assetData) {
     return assetData;
 }
 
-module.exports = reactNativeAssetPlugin;
+module.exports = _imageminAssetPlugin;

@@ -34,6 +34,7 @@ const App = () => {
         style={backgroundStyle}>
         <Header />
         <Image source={require('./assets/pic.png')} />
+        <Image source={require('./assets/banner.jpg')} />
       </ScrollView>
     </SafeAreaView>
   );

@@ -2,7 +2,7 @@
  * @Author: iChengbo
  * @Date: 2021-08-13 14:04:48
  * @LastEditors: iChengbo
- * @LastEditTime: 2021-08-13 17:54:40
+ * @LastEditTime: 2021-08-14 10:39:39
  * @FilePath: /react-native-imagemin-asset-plugin/index.js
  */
 const imagemin = require('imagemin');
@@ -14,14 +14,6 @@ const cacheDir = 'img_cache';
 const defaultConfig = {
     pngquant: {},
 };
-
-async function compress(files, destination, options) {
-    const _options = Object.assign({}, defaultConfig, options);
-    return await imagemin(files, {
-        destination: destination,
-        plugins: [imageminPngquant(_options.pngquant)],
-    });
-}
 
 /**
  * @param {*} assetData
@@ -36,25 +28,25 @@ async function reactNativeAssetPlugin(assetData) {
         metroConfig = {};
     }
     const transformerOptions = metroConfig.transformer || {};
+    const _options = Object.assign({}, defaultConfig, transformerOptions.imageminAssetPlugin);
 
-    const reg = /\.(png|jpg|jpeg|bmp)/;
-    if (
-        reg.test(assetData.files[0]) &&
-        !/node_modules/.test(assetData.fileSystemLocation)
-    ) {
+    if (!/node_modules/.test(assetData.fileSystemLocation)) {
         const outputDirectory = path.join(
             __dirname,
             cacheDir,
             assetData.httpServerLocation
         );
-        const tmpFiles = await compress(assetData.files, outputDirectory, transformerOptions.imageminAssetPlugin);
-        const outFiles = tmpFiles.map(file => {
-            return file.destinationPath;
-        });
-        return {
-            ...assetData,
-            files: outFiles,
-        };
+        if (/\.png$/.test(assetData.files[0])) {
+            const tmpFiles = await imagemin(assetData.files, {
+                destination: outputDirectory,
+                plugins: [imageminPngquant(_options.pngquant)],
+            });
+            const outFiles = tmpFiles.map(file => file.destinationPath);
+            return {
+                ...assetData,
+                files: outFiles,
+            };
+        }
     }
     return assetData;
 }

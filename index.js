@@ -11,6 +11,7 @@ const defaultConfig = {
 };
 
 /**
+ * imagemin assetPlugin
  * @param {*} assetData
  * @returns
  */

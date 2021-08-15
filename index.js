@@ -15,33 +15,37 @@ const defaultConfig = {
  * @returns
  */
 async function _imageminAssetPlugin(assetData) {
-    const metroConfigPath = path.join(process.cwd(), 'metro.config.js');
-    let metroConfig;
     try {
-        metroConfig = require(metroConfigPath);
-    } catch {
-        metroConfig = {};
-    }
-    const transformerOptions = metroConfig.transformer || {};
-    const _options = Object.assign({}, defaultConfig, transformerOptions.imageminAssetPlugin);
-
-    if (!/node_modules/.test(assetData.fileSystemLocation)) {
-        const outputDirectory = path.join(
-            __dirname,
-            cacheDir,
-            assetData.httpServerLocation
-        );
-        if (/\.(png|jpg|jpeg)$/.test(assetData.files[0])) {
-            const tmpFiles = await imagemin(assetData.files, {
-                destination: outputDirectory,
-                plugins: [imageminPngquant(_options.pngquant), imageminMozjpeg(_options.mozjpeg)],
-            });
-            const outFiles = tmpFiles.map(file => file.destinationPath);
-            return {
-                ...assetData,
-                files: outFiles,
-            };
+        const metroConfigPath = path.join(process.cwd(), 'metro.config.js');
+        let metroConfig;
+        try {
+            metroConfig = require(metroConfigPath);
+        } catch {
+            metroConfig = {};
         }
+        const transformerOptions = metroConfig.transformer || {};
+        const _options = Object.assign({}, defaultConfig, transformerOptions.imageminAssetPlugin);
+    
+        if (!/node_modules/.test(assetData.fileSystemLocation)) {
+            const outputDirectory = path.join(
+                __dirname,
+                cacheDir,
+                assetData.httpServerLocation
+            );
+            if (/\.(png|jpg|jpeg)$/.test(assetData.files[0])) {
+                const tmpFiles = await imagemin(assetData.files, {
+                    destination: outputDirectory,
+                    plugins: [imageminPngquant(_options.pngquant), imageminMozjpeg(_options.mozjpeg)],
+                });
+                const outFiles = tmpFiles.map(file => file.destinationPath);
+                return {
+                    ...assetData,
+                    files: outFiles,
+                };
+            }
+        }
+    } catch (error) {
+        return assetData;
     }
     return assetData;
 }

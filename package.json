@@ -30,5 +30,10 @@
     "imagemin": "7.0.1",
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-pngquant": "^9.0.2"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "semantic-release": "^17.4.4"
   }
 }

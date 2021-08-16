@@ -54,6 +54,14 @@ module.exports = {
 };
 ```
 
+### imageminAssetPlugin.pngquant
+
+> https://github.com/imagemin/imagemin-pngquant
+
+### imageminAssetPlugin.mozjpeg
+> https://github.com/imagemin/imagemin-mozjpeg
+
+
 ## Other 
 
 ...

@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.1.0...v1.1.1) (2021-08-16)
+
+
+### Bug Fixes
+
+* load metro config ([b8e97b1](https://github.com/iChengbo/react-native-imagemin-asset-plugin/commit/b8e97b1cf51e4b49408a334928e65fe7e92d0767))
+
 # [1.1.0](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.0.3...v1.1.0) (2021-08-15)
 
 

@@ -1,3 +1,4 @@
+const Metro = require('metro');
 const imagemin = require('imagemin');
 const imageminPngquant = require('imagemin-pngquant');
 const imageminMozjpeg = require('imagemin-mozjpeg');
@@ -17,13 +18,7 @@ const defaultConfig = {
  */
 async function _imageminAssetPlugin(assetData) {
     try {
-        const metroConfigPath = path.join(process.cwd(), 'metro.config.js');
-        let metroConfig;
-        try {
-            metroConfig = require(metroConfigPath);
-        } catch {
-            metroConfig = {};
-        }
+        const metroConfig = await Metro.loadConfig();
         const transformerOptions = metroConfig.transformer || {};
         const _options = Object.assign({}, defaultConfig, transformerOptions.imageminAssetPlugin);
     

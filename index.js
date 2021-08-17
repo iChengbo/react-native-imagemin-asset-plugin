@@ -4,9 +4,8 @@ const imageminPngquant = require('imagemin-pngquant');
 const imageminMozjpeg = require('imagemin-mozjpeg');
 const path = require('path');
 
-const cacheDir = 'img_cache';
-
 const defaultConfig = {
+    imageminDir: './node_modules/react-native-imagemin-asset-plugin/.compressed-images',
     pngquant: {},
     mozjpeg: {},
 };
@@ -24,8 +23,8 @@ async function _imageminAssetPlugin(assetData) {
     
         if (!/node_modules/.test(assetData.fileSystemLocation)) {
             const outputDirectory = path.join(
-                __dirname,
-                cacheDir,
+                process.cwd(),
+                _options.imageminDir,
                 assetData.httpServerLocation
             );
             if (/\.(png|jpg|jpeg)$/.test(assetData.files[0])) {

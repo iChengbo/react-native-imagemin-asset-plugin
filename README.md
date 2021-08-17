@@ -7,7 +7,7 @@
 
 > **Metro Asset plugin for compressing images in React Native.**
 
-<img width="414px" src="./example.png" alt="example" />
+<img width="414px" src="https://github.com/iChengbo/react-native-imagemin-asset-plugin/blob/next/example.png?raw=true" alt="example" />
 
 ## Installation
 
@@ -49,6 +49,7 @@ module.exports = {
     // ...
     assetPlugins: ['react-native-imagemin-asset-plugin'],
     imageminAssetPlugin: {
+      imageminDir: '.compressed-images',
       pngquant: {
         quality: [0.6, 0.8],
       },
@@ -59,6 +60,14 @@ module.exports = {
   },
 };
 ```
+
+### imageminAssetPlugin.imageminDir
+
+Type: `string`
+
+Default: `./node_modules/react-native-imagemin-asset-plugin/.compressed-images`
+
+Name of directory to store compressed images.
 
 ### imageminAssetPlugin.pngquant
 

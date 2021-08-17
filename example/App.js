@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -9,7 +10,6 @@
 import React from 'react';
 import {
   SafeAreaView,
-  ScrollView,
   StatusBar,
   Text,
   useColorScheme,
@@ -17,25 +17,31 @@ import {
   Image,
 } from 'react-native';
 
-import {Header} from 'react-native/Libraries/NewAppScreen';
-
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
-  const backgroundStyle = {
-    backgroundColor: '#fff',
-  };
-
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <SafeAreaView style={{flex: 1, backgroundColor: '#ddd'}}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <Image source={require('./assets/pic.png')} />
-        <Image source={require('./assets/banner.jpg')} />
-      </ScrollView>
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <Image
+          source={require('./assets/panda.png')}
+          style={{borderWidth: 5, borderColor: '#fff'}}
+        />
+        <Text style={{marginTop: 5}}>
+          Original transparent PNG&nbsp;
+          <Text style={{fontWeight: 'bold', color: 'red'}}>57KB</Text>
+        </Text>
+        <View style={{height: 20}} />
+        <Image
+          source={require('./bundle/assets/assets/panda.png')}
+          style={{borderWidth: 5, borderColor: '#fff'}}
+        />
+        <Text style={{marginTop: 5}}>
+          Shrunk transparent PNG&nbsp;
+          <Text style={{fontWeight: 'bold', color: 'red'}}>16KB</Text>
+        </Text>
+      </View>
     </SafeAreaView>
   );
 };

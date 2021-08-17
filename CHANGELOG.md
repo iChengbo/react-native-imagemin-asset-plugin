@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.1.1...v1.2.0) (2021-08-17)
+
+
+### Features
+
+* support custom folders for storing compressed images ([b86a428](https://github.com/iChengbo/react-native-imagemin-asset-plugin/commit/b86a428725dfc3b358be0a104e342ba7a2157c9c))
+
 ## [1.1.1](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.1.0...v1.1.1) (2021-08-16)
 
 

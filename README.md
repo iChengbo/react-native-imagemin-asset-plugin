@@ -5,7 +5,9 @@
 [![npm-version](https://img.shields.io/npm/v/react-native-imagemin-asset-plugin)](https://www.npmjs.com/package/react-native-imagemin-asset-plugin)
 [![npm](https://img.shields.io/npm/dm/react-native-imagemin-asset-plugin.svg)](https://www.npmjs.com/package/react-native-imagemin-asset-plugin)
 
-> **Metro Asset plugin for compressing images in React Native.**
+**Metro Asset plugin for compressing images in React Native.**
+
+> Minify PNG, JPG, JPEG images with [imagemin](https://github.com/imagemin/imagemin)
 
 <img width="414px" src="https://github.com/iChengbo/react-native-imagemin-asset-plugin/blob/next/example.png?raw=true" alt="example" />
 

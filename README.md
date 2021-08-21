@@ -11,15 +11,21 @@
 
 <img width="414px" src="https://github.com/iChengbo/react-native-imagemin-asset-plugin/blob/next/example.png?raw=true" alt="example" />
 
-## Installation
+## Usage
 
-### npm
+### Step 1: Install
 
+```sh
+yarn add -D react-native-imagemin-asset-plugin
 ```
+
+or
+
+```sh
 npm install --save-dev react-native-imagemin-asset-plugin
 ```
 
-### metro
+### Step 2: Configure `metro.config.js`
 
 Add `react-native-imagemin-asset-plugin` to the list of `assetPlugins` in your `metro.config.js` file under the transformer section.
 
@@ -76,6 +82,7 @@ Name of directory to store compressed images.
 > https://github.com/imagemin/imagemin-pngquant
 
 ### imageminAssetPlugin.mozjpeg
+
 > https://github.com/imagemin/imagemin-mozjpeg
 
 

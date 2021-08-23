@@ -25,7 +25,7 @@ const App = () => {
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Image
-          source={require('./assets/panda.png')}
+          source={require('./assets/original_panda.png')}
           style={{borderWidth: 5, borderColor: '#fff'}}
         />
         <Text style={{marginTop: 5}}>
@@ -34,7 +34,7 @@ const App = () => {
         </Text>
         <View style={{height: 20}} />
         <Image
-          source={require('./bundle/assets/assets/panda.png')}
+          source={require('./assets/shrunk_panda.png')}
           style={{borderWidth: 5, borderColor: '#fff'}}
         />
         <Text style={{marginTop: 5}}>

@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.2.0...v1.3.0) (2021-08-23)
+
+
+### Features
+
+* support more imagemin plugins ([3afcc32](https://github.com/iChengbo/react-native-imagemin-asset-plugin/commit/3afcc3216e780d9908f6d1ef3c162dfde2c49bfa))
+
 # [1.2.0](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.1.1...v1.2.0) (2021-08-17)
 
 

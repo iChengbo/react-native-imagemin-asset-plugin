@@ -5,17 +5,15 @@
 [![npm-version](https://img.shields.io/npm/v/react-native-imagemin-asset-plugin)](https://www.npmjs.com/package/react-native-imagemin-asset-plugin)
 [![npm](https://img.shields.io/npm/dm/react-native-imagemin-asset-plugin.svg)](https://www.npmjs.com/package/react-native-imagemin-asset-plugin)
 
-[简体中文](https://github.com/iChengbo/react-native-imagemin-asset-plugin/blob/next/README-CN.md)
+**用于压缩 React-Native 图片资源的 metro 插件**
 
-**Metro Asset plugin for compressing images in React Native.**
-
-> Minify PNG, JPG, JPEG, GIF, SVG and WEBP images with [imagemin](https://github.com/imagemin/imagemin)
+> 使用 [imagemin](https://github.com/imagemin/imagemin) 完美压缩 PNG, JPG, JPEG, GIF, SVG 和 WEBP 等格式图片。
 
 <img width="414px" src="https://github.com/iChengbo/react-native-imagemin-asset-plugin/blob/next/example.png?raw=true" alt="example" />
 
-## Usage
+## 使用
 
-### Step 1: Install
+### 步骤 1: 安装
 
 ```sh
 yarn add -D react-native-imagemin-asset-plugin
@@ -27,11 +25,9 @@ or
 npm install --save-dev react-native-imagemin-asset-plugin
 ```
 
-### Step 2: Configure `metro.config.js`
+### 步骤 2: 配置 `metro.config.js`
 
-Add `react-native-imagemin-asset-plugin` to the list of `assetPlugins` in your `metro.config.js` file under the transformer section.
-
-For example;
+如下，修改 `metro.config.js` 文件，在 `transformer` 中添加 `assetPlugins` 属性，并设置为 `['react-native-imagemin-asset-plugin']`
 
 ```js
 module.exports = {
@@ -47,11 +43,10 @@ module.exports = {
 };
 ```
 
-## Configuration
+## 配置
 
-You can configure the plugin behaviour through the optional `imageminAssetPlugin` field in your `metro.config.js` file under the `transformer` section.
+如下，可以在 `metro.config.js` 文件的 `transformer` 属性中添加 `imageminAssetPlugin` 以自定义插件的功能。
 
-For example;
 
 ```js
 module.exports = {
@@ -71,9 +66,9 @@ module.exports = {
 };
 ```
 
-| Option      | Description                                   | Reference                                                    |
+| 属性      | 描述                                   | 参考                                                    |
 | ----------- | --------------------------------------------- | ------------------------------------------------------------ |
-| imageminDir | Name of directory to store compressed images. | Default: `./node_modules/react-native-imagemin-asset-plugin/.compressed-images` |
+| imageminDir | 存储压缩后图片的临时文件夹 | Default: `./node_modules/react-native-imagemin-asset-plugin/.compressed-images` |
 | giflossy    | Compress GIF images                           | https://github.com/imagemin/imagemin-giflossy                |
 | gifsicle    | Compress GIF images                           | https://github.com/imagemin/imagemin-gifsicle                |
 | jpegtran    | Compress JPEG images                          | https://github.com/imagemin/imagemin-jpegtran                |
@@ -84,6 +79,6 @@ module.exports = {
 | webp        | Compress JPG & PNG images into WEBP*          | https://github.com/imagemin/imagemin-webp                    |
 
 
-## Other 
+## 其他 
 
 ...

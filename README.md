@@ -81,7 +81,7 @@ module.exports = {
 | optipng     | Compress PNG images                           | https://github.com/imagemin/imagemin-optipng                 |
 | pngquant    | Compress PNG images                           | https://github.com/imagemin/imagemin-pngquant                |
 | svgo        | Compress SVG images                           | https://github.com/imagemin/imagemin-svgo                    |
-| webp        | Compress JPG & PNG images into WEBP*          | https://github.com/imagemin/imagemin-webp                    |
+| webp        | Compress JPG & PNG images into WEBP           | https://github.com/imagemin/imagemin-webp                    |
 
 
 ## Other 

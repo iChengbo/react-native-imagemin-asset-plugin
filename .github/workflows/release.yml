@@ -19,10 +19,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Genarate QrCode
-        uses: iChengbo/generate-qrcode@v0.0.2
+        uses: iChengbo/generate-qrcode@v0.1.1
         id: getQrcode
         with:
-          file: iChengbo/react-native-imagemin-asset-plugin/package.json
+          text: https://cdn.jsdelivr.net/gh/iChengbo/react-native-imagemin-asset-plugin/package.json
       - name: echo path
         run: echo "${{ steps.getQRCode.outputs.QR_CODE_PNG_PATH }}"
       # - name: Release

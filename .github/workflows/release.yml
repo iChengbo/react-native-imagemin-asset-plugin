@@ -25,6 +25,11 @@ jobs:
           text: https://cdn.jsdelivr.net/gh/iChengbo/react-native-imagemin-asset-plugin/package.json
       - name: echo path
         run: echo "${{ steps.getQRCode.outputs.QR_CODE_PNG_PATH }}"
+      - name: Upload Image
+        uses: actions/upload-artifact@v2
+        with:
+          name: qrcode
+          path: ${{ steps.getQRCode.outputs.QR_CODE_PNG_PATH }}
       # - name: Release
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

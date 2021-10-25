@@ -84,6 +84,10 @@ module.exports = {
 | webp        | Compress JPG & PNG images into WEBP           | https://github.com/imagemin/imagemin-webp                    |
 
 
+## LICENSE
+
+[MIT](./LICENSE)
+
 ## Other 
 
 ...

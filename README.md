@@ -71,17 +71,17 @@ module.exports = {
 };
 ```
 
-| Option      | Description                                   | Reference                                                    |
-| ----------- | --------------------------------------------- | ------------------------------------------------------------ |
-| imageminDir | Name of directory to store compressed images. | Default: `./node_modules/react-native-imagemin-asset-plugin/.compressed-images` |
-| giflossy    | Compress GIF images                           | https://github.com/imagemin/imagemin-giflossy                |
-| gifsicle    | Compress GIF images                           | https://github.com/imagemin/imagemin-gifsicle                |
-| jpegtran    | Compress JPEG images                          | https://github.com/imagemin/imagemin-jpegtran                |
-| mozjpeg     | Compress JPEG images                          | https://github.com/imagemin/imagemin-mozjpeg                 |
-| optipng     | Compress PNG images                           | https://github.com/imagemin/imagemin-optipng                 |
-| pngquant    | Compress PNG images                           | https://github.com/imagemin/imagemin-pngquant                |
-| svgo        | Compress SVG images                           | https://github.com/imagemin/imagemin-svgo                    |
-| webp        | Compress JPG & PNG images into WEBP           | https://github.com/imagemin/imagemin-webp                    |
+| Option      | Description                                   | Reference                                     |
+| ----------- | --------------------------------------------- | --------------------------------------------- |
+| imageminDir | Name of directory to store compressed images. | Default: `.shrunken`                          |
+| giflossy    | Compress GIF images                           | https://github.com/imagemin/imagemin-giflossy |
+| gifsicle    | Compress GIF images                           | https://github.com/imagemin/imagemin-gifsicle |
+| jpegtran    | Compress JPEG images                          | https://github.com/imagemin/imagemin-jpegtran |
+| mozjpeg     | Compress JPEG images                          | https://github.com/imagemin/imagemin-mozjpeg  |
+| optipng     | Compress PNG images                           | https://github.com/imagemin/imagemin-optipng  |
+| pngquant    | Compress PNG images                           | https://github.com/imagemin/imagemin-pngquant |
+| svgo        | Compress SVG images                           | https://github.com/imagemin/imagemin-svgo     |
+| webp        | Compress JPG & PNG images into WEBP           | https://github.com/imagemin/imagemin-webp     |
 
 
 ## LICENSE

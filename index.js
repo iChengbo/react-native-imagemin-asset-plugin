@@ -1,5 +1,6 @@
 const Metro = require('metro');
 const path = require('path');
+const fs = require('fs/promises');
 
 const imagemin = require('imagemin');
 // lossy plugins
@@ -15,7 +16,7 @@ const imageminGifSicle = require('imagemin-gifsicle');
 
 const defaultConfig = {
     test: /\.(png|jpg|jpeg)$/, // TODO:RegExp, minimatch glob ...
-    imageminDir: './node_modules/react-native-imagemin-asset-plugin/.compressed-images',
+    imageminDir: '.shrunken',
     mozjpeg: {},
     pngquant: {},
     giflossy: null,
@@ -25,6 +26,17 @@ const defaultConfig = {
     optipng: null,
     gifsicle: null,
 };
+
+(async () => {
+    const options = await buildAssetPluginConfig();
+    const _gitignore = path.join(process.cwd(), options.imageminDir, '.gitignore');
+    try {
+        await fs.access(_gitignore);
+    } catch (error) {
+        await fs.mkdir(path.join(process.cwd(), options.imageminDir))
+        await fs.writeFile(_gitignore, '*');
+    }
+})();
 
 /**
  * 

@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.3.2...v1.4.0) (2021-10-29)
+
+
+### Features
+
+* modify the default temporary directory during compression & add 'gitignore' to ignore the directory ([9a642b2](https://github.com/iChengbo/react-native-imagemin-asset-plugin/commit/9a642b2c595f194a2ff82392961dc64ae61028a3))
+
 ## [1.3.2](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.3.1...v1.3.2) (2021-10-25)
 
 

@@ -68,7 +68,7 @@ module.exports = {
 
 | 属性      | 描述                                   | 参考                                                    |
 | ----------- | --------------------------------------------- | ------------------------------------------------------------ |
-| imageminDir | 存储压缩后图片的临时文件夹 | Default: `shrunken` |
+| imageminDir | 存储压缩后图片的临时文件夹 | Default: `.shrunken` |
 | giflossy    | Compress GIF images                           | https://github.com/imagemin/imagemin-giflossy                |
 | gifsicle    | Compress GIF images                           | https://github.com/imagemin/imagemin-gifsicle                |
 | jpegtran    | Compress JPEG images                          | https://github.com/imagemin/imagemin-jpegtran                |

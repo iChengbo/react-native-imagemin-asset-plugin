@@ -7,7 +7,7 @@
 
 **用于压缩 React-Native 图片资源的 metro 插件**
 
-> 使用 [imagemin](https://github.com/imagemin/imagemin) 完美压缩 PNG, JPG, JPEG, GIF, SVG 和 WEBP 等格式图片。
+> 使用 [imagemin](https://github.com/imagemin/imagemin) 完美压缩 PNG, JPG, JPEG 格式图片或者将其转为 WEBP 格式图片。
 
 <img width="414px" src="https://github.com/iChengbo/react-native-imagemin-asset-plugin/blob/next/example.png?raw=true" alt="example" />
 
@@ -32,12 +32,7 @@ npm install --save-dev react-native-imagemin-asset-plugin
 ```js
 module.exports = {
   transformer: {
-    getTransformOptions: async () => ({
-      transform: {
-        experimentalImportSupport: false,
-        inlineRequires: false,
-      },
-    }),
+    // ...
     assetPlugins: ['react-native-imagemin-asset-plugin'],
   },
 };
@@ -69,14 +64,14 @@ module.exports = {
 | 属性      | 描述                                   | 参考                                                    |
 | ----------- | --------------------------------------------- | ------------------------------------------------------------ |
 | imageminDir | 存储压缩后图片的临时文件夹 | Default: `.shrunken` |
-| giflossy    | Compress GIF images                           | https://github.com/imagemin/imagemin-giflossy                |
-| gifsicle    | Compress GIF images                           | https://github.com/imagemin/imagemin-gifsicle                |
-| jpegtran    | Compress JPEG images                          | https://github.com/imagemin/imagemin-jpegtran                |
-| mozjpeg     | Compress JPEG images                          | https://github.com/imagemin/imagemin-mozjpeg                 |
-| optipng     | Compress PNG images                           | https://github.com/imagemin/imagemin-optipng                 |
-| pngquant    | Compress PNG images                           | https://github.com/imagemin/imagemin-pngquant                |
-| svgo        | Compress SVG images                           | https://github.com/imagemin/imagemin-svgo                    |
-| webp        | Compress JPG & PNG images into WEBP           | https://github.com/imagemin/imagemin-webp                    |
+| giflossy<br />(deprecated) | 压缩 GIF 格式图片                       | https://github.com/imagemin/imagemin-giflossy |
+| gifsicle<br />(deprecated) | 压缩 GIF 格式图片                     | https://github.com/imagemin/imagemin-gifsicle |
+| jpegtran    | 压缩 JPEG 格式图片                    | https://github.com/imagemin/imagemin-jpegtran |
+| mozjpeg     | 压缩 JPEG 格式图片                    | https://github.com/imagemin/imagemin-mozjpeg  |
+| optipng     | 压缩 PNG 格式图片                     | https://github.com/imagemin/imagemin-optipng  |
+| pngquant    | 压缩 PNG 格式图片                     | https://github.com/imagemin/imagemin-pngquant |
+| svgo<br />(deprecated) | 压缩 SVG 格式图片                     | https://github.com/imagemin/imagemin-svgo     |
+| webp<br /> | 压缩 JPG & PNG 格式图片 为 WEBP 格式图片  | https://github.com/imagemin/imagemin-webp     |
 
 
 ## LICENSE

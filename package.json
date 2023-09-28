@@ -1,13 +1,17 @@
 {
   "name": "react-native-imagemin-asset-plugin",
   "version": "1.4.0",
-  "description": "Asset plugin for compress images in React Native",
-  "main": "index.js",
+  "description": "Asset plugin for compress/convert images in React Native",
+  "main": "dist/lib/index.js",
+  "types": "dist/types",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prebuild": "rimraf dist",
+    "build": "tsc",
+    "pretest": "npm run build",
+    "test": "cd playground && npx expo export"
   },
   "files": [
-    "index.js"
+    "dist"
   ],
   "keywords": [
     "react-native",
@@ -29,28 +33,31 @@
   "homepage": "https://github.com/iChengbo/react-native-imagemin-asset-plugin#readme",
   "dependencies": {
     "imagemin": "7.0.1",
-    "imagemin-giflossy": "^5.1.10",
-    "imagemin-gifsicle": "^7.0.0",
     "imagemin-jpegtran": "^7.0.0",
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-optipng": "^8.0.0",
     "imagemin-pngquant": "^9.0.2",
-    "imagemin-svgo": "^9.0.0",
-    "imagemin-webp": "^6.0.0"
+    "imagemin-webp": "^8.0.0"
   },
   "optionalDependencies": {
-    "imagemin-giflossy": "^5.1.10",
-    "imagemin-gifsicle": "^7.0.0",
     "imagemin-jpegtran": "^7.0.0",
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-optipng": "^8.0.0",
-    "imagemin-pngquant": "^9.0.2",
-    "imagemin-svgo": "^9.0.0",
-    "imagemin-webp": "^6.0.0"
+    "imagemin-pngquant": "^9.0.2"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
-    "semantic-release": "^21.0.1"
+    "@types/imagemin": "^8.0.1",
+    "@types/imagemin-jpegtran": "^5.0.2",
+    "@types/imagemin-mozjpeg": "^8.0.2",
+    "@types/imagemin-optipng": "^5.2.2",
+    "@types/imagemin-pngquant": "^8.0.0",
+    "@types/imagemin-webp": "^7.0.1",
+    "metro": "^0.79.1",
+    "react-native-imagemin-asset-plugin": "^1.4.0",
+    "rimraf": "^5.0.5",
+    "semantic-release": "^22.0.5",
+    "typescript": "^5.2.2"
   }
 }

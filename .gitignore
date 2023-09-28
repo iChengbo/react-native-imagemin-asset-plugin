@@ -11,3 +11,6 @@ yarn-error.log
 
 # temp
 .compressed-images
+
+# build
+dist

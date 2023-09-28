@@ -9,7 +9,7 @@
 
 **Metro Asset plugin for compressing images in React Native.**
 
-> Minify PNG, JPG, JPEG, GIF, SVG and WEBP images with [imagemin](https://github.com/imagemin/imagemin)
+> Minify PNG, JPG, JPEG images or convert them to WEBP image with [imagemin](https://github.com/imagemin/imagemin)
 
 <img width="414px" src="https://github.com/iChengbo/react-native-imagemin-asset-plugin/blob/next/example.png?raw=true" alt="example" />
 
@@ -33,18 +33,30 @@ Add `react-native-imagemin-asset-plugin` to the list of `assetPlugins` in your `
 
 For example;
 
+> React Native Cli
+
 ```js
 module.exports = {
   transformer: {
-    getTransformOptions: async () => ({
-      transform: {
-        experimentalImportSupport: false,
-        inlineRequires: false,
-      },
-    }),
+    // ...
     assetPlugins: ['react-native-imagemin-asset-plugin'],
   },
 };
+```
+
+> Expo Go
+
+```js
+// Learn more https://docs.expo.io/guides/customizing-metro
+const { getDefaultConfig } = require('expo/metro-config');
+
+/** @type {import('expo/metro-config').MetroConfig} */
+const config = getDefaultConfig(__dirname);
+
+// use plugin to compress assets
+config.transformer.assetPlugins.push('react-native-imagemin-asset-plugin')
+
+module.exports = config;
 ```
 
 ## Configuration
@@ -71,17 +83,17 @@ module.exports = {
 };
 ```
 
-| Option      | Description                                   | Reference                                     |
-| ----------- | --------------------------------------------- | --------------------------------------------- |
-| imageminDir | Name of directory to store compressed images. | Default: `.shrunken`                          |
-| giflossy    | Compress GIF images                           | https://github.com/imagemin/imagemin-giflossy |
-| gifsicle    | Compress GIF images                           | https://github.com/imagemin/imagemin-gifsicle |
-| jpegtran    | Compress JPEG images                          | https://github.com/imagemin/imagemin-jpegtran |
-| mozjpeg     | Compress JPEG images                          | https://github.com/imagemin/imagemin-mozjpeg  |
-| optipng     | Compress PNG images                           | https://github.com/imagemin/imagemin-optipng  |
-| pngquant    | Compress PNG images                           | https://github.com/imagemin/imagemin-pngquant |
-| svgo        | Compress SVG images                           | https://github.com/imagemin/imagemin-svgo     |
-| webp        | Compress JPG & PNG images into WEBP           | https://github.com/imagemin/imagemin-webp     |
+| Option                     | Description                                   | Reference                                     |
+| -------------------------- | --------------------------------------------- | --------------------------------------------- |
+| imageminDir                | Name of directory to store compressed images. | Default: `.shrunken`                          |
+| giflossy<br />(deprecated) | Compress GIF images                           | https://github.com/imagemin/imagemin-giflossy |
+| gifsicle<br />(deprecated) | Compress GIF images                           | https://github.com/imagemin/imagemin-gifsicle |
+| jpegtran                   | Compress JPEG images                          | https://github.com/imagemin/imagemin-jpegtran |
+| mozjpeg                    | Compress JPEG images                          | https://github.com/imagemin/imagemin-mozjpeg  |
+| optipng                    | Compress PNG images                           | https://github.com/imagemin/imagemin-optipng  |
+| pngquant                   | Compress PNG images                           | https://github.com/imagemin/imagemin-pngquant |
+| svgo<br />(deprecated)     | Compress SVG images                           | https://github.com/imagemin/imagemin-svgo     |
+| webp                       | Compress JPG & PNG images into WEBP           | https://github.com/imagemin/imagemin-webp     |
 
 
 ## LICENSE

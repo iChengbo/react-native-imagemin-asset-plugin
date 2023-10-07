@@ -37,13 +37,14 @@
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-optipng": "^8.0.0",
     "imagemin-pngquant": "^9.0.2",
-    "imagemin-webp": "^8.0.0"
+    "imagemin-webp": "^6.1.0"
   },
   "optionalDependencies": {
     "imagemin-jpegtran": "^7.0.0",
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-optipng": "^8.0.0",
-    "imagemin-pngquant": "^9.0.2"
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-webp": "^6.1.0"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
@@ -55,7 +56,6 @@
     "@types/imagemin-pngquant": "^8.0.0",
     "@types/imagemin-webp": "^7.0.1",
     "metro": "^0.79.1",
-    "react-native-imagemin-asset-plugin": "^1.4.0",
     "rimraf": "^5.0.5",
     "semantic-release": "^22.0.5",
     "typescript": "^5.2.2"

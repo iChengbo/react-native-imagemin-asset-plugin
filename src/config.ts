@@ -42,6 +42,11 @@ export const defaultConfig: IConfig = {
 export const buildAssetPluginConfig = async (): Promise<IConfig> => {
   const metroConfig = await Metro.loadConfig();
   const transformerOptions = metroConfig.transformer || {};
+  /**
+   * FIXME: will result in a warning
+   * `Unknown option "server.runInspectorProxy" with value true was found.
+   * This is probably a typing mistake. Fixing it will remove this message.`
+   */
   // @ts-ignore
   return Object.assign({}, defaultConfig, transformerOptions.imageminAssetPlugin);
 }

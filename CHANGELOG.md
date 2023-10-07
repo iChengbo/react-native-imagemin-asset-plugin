@@ -1,3 +1,13 @@
+## [1.4.1](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.4.0...v1.4.1) (2023-10-07)
+
+
+### Bug Fixes
+
+* **action:** install dependencies ([45da12d](https://github.com/iChengbo/react-native-imagemin-asset-plugin/commit/45da12defe439524f4b388ab2a6f89b8efe7de19))
+* **action:** the version of ubuntu ([b0a375c](https://github.com/iChengbo/react-native-imagemin-asset-plugin/commit/b0a375cb8ff99a614d495e48ee8499400fcbc267))
+* readme-cn ([626ee9a](https://github.com/iChengbo/react-native-imagemin-asset-plugin/commit/626ee9a6f0c6c91be475f3ce954389351a846b40))
+* the version of imagemin-webp ([7bd2cb7](https://github.com/iChengbo/react-native-imagemin-asset-plugin/commit/7bd2cb70aebdb9e7ab96fd2df2ae9a9fd99cf6a4))
+
 # [1.4.0](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.3.2...v1.4.0) (2021-10-29)
 
 

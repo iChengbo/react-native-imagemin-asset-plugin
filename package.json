@@ -1,6 +1,6 @@
 {
   "name": "react-native-imagemin-asset-plugin",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Asset plugin for compress/convert images in React Native",
   "main": "dist/lib/index.js",
   "types": "dist/types",

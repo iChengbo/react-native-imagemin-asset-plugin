@@ -55,7 +55,7 @@
     "@types/imagemin-optipng": "^5.2.2",
     "@types/imagemin-pngquant": "^8.0.0",
     "@types/imagemin-webp": "^7.0.1",
-    "metro": "^0.79.1",
+    "metro": "^0.80.0",
     "rimraf": "^5.0.5",
     "semantic-release": "^22.0.5",
     "typescript": "^5.2.2"

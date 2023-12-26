@@ -86,13 +86,13 @@ module.exports = {
 | Option                     | Description                                   | Reference                                     |
 | -------------------------- | --------------------------------------------- | --------------------------------------------- |
 | imageminDir                | Name of directory to store compressed images. | Default: `.shrunken`                          |
-| giflossy<br />(deprecated) | (Lossy) Compress GIF images                           | https://github.com/imagemin/imagemin-giflossy |
-| gifsicle<br />(deprecated) | (Lossless) Compress GIF images                           | https://github.com/imagemin/imagemin-gifsicle |
-| mozjpeg                    | (Lossy) Compress JPEG images                          | https://github.com/imagemin/imagemin-mozjpeg  |
-| jpegtran                   | (Lossless) Compress JPEG images                          | https://github.com/imagemin/imagemin-jpegtran |
-| pngquant                   | (Lossy) Compress PNG images                           | https://github.com/imagemin/imagemin-pngquant |
-| optipng                    | (Lossless) Compress PNG images                           | https://github.com/imagemin/imagemin-optipng  |
-| svgo<br />(deprecated)     | (Lossy) Compress SVG images                           | https://github.com/imagemin/imagemin-svgo     |
+| giflossy<br />(deprecated) | (Lossy) Compress GIF images                   | https://github.com/imagemin/imagemin-giflossy |
+| gifsicle                   | (Lossless) Compress GIF images                | https://github.com/imagemin/imagemin-gifsicle |
+| mozjpeg                    | (Lossy) Compress JPEG images                  | https://github.com/imagemin/imagemin-mozjpeg  |
+| jpegtran                   | (Lossless) Compress JPEG images               | https://github.com/imagemin/imagemin-jpegtran |
+| pngquant                   | (Lossy) Compress PNG images                   | https://github.com/imagemin/imagemin-pngquant |
+| optipng                    | (Lossless) Compress PNG images                | https://github.com/imagemin/imagemin-optipng  |
+| svgo                       | (Lossy) Compress SVG images                   | https://github.com/imagemin/imagemin-svgo     |
 | webp                       | Compress JPG & PNG images into WEBP           | https://github.com/imagemin/imagemin-webp     |
 
 

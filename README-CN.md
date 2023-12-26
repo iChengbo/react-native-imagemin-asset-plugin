@@ -65,12 +65,12 @@ module.exports = {
 | ----------- | --------------------------------------------- | ------------------------------------------------------------ |
 | imageminDir | 存储压缩后图片的临时文件夹 | Default: `.shrunken` |
 | giflossy<br />(deprecated) | （有损）压缩 GIF 格式图片                       | https://github.com/imagemin/imagemin-giflossy |
-| gifsicle<br />(deprecated) | （无损）压缩 GIF 格式图片                     | https://github.com/imagemin/imagemin-gifsicle |
+| gifsicle | （无损）压缩 GIF 格式图片                     | https://github.com/imagemin/imagemin-gifsicle |
 | mozjpeg     | （有损）压缩 JPEG 格式图片                    | https://github.com/imagemin/imagemin-mozjpeg  |
 | jpegtran    | （无损）压缩 JPEG 格式图片                    | https://github.com/imagemin/imagemin-jpegtran |
 | pngquant    | （有损）压缩 PNG 格式图片                     | https://github.com/imagemin/imagemin-pngquant |
 | optipng     | （无损）压缩 PNG 格式图片                     | https://github.com/imagemin/imagemin-optipng  |
-| svgo<br />(deprecated) | （有损）压缩 SVG 格式图片                     | https://github.com/imagemin/imagemin-svgo     |
+| svgo | （有损）压缩 SVG 格式图片                     | https://github.com/imagemin/imagemin-svgo     |
 | webp<br /> | 压缩 JPG & PNG 格式图片 为 WEBP 格式图片  | https://github.com/imagemin/imagemin-webp     |
 
 

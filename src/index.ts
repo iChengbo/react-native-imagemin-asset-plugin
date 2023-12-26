@@ -7,16 +7,7 @@ import imagemin from 'imagemin'
 import { buildAssetPluginConfig, buildImageminPlugins } from './config'
 import type { IConfig } from './config'
 
-(async () => {
-  const options = await buildAssetPluginConfig()
-  const _gitignore = path.join(process.cwd(), options.imageminDir, '.gitignore')
-  try {
-    await fs.access(_gitignore);
-  } catch (error) {
-    await fs.mkdir(path.join(process.cwd(), options.imageminDir))
-    await fs.writeFile(_gitignore, '*')
-  }
-})();
+let options: IConfig
 
 /**
  * imagemin assetPlugin
@@ -25,7 +16,16 @@ import type { IConfig } from './config'
  */
 const _imageminAssetPlugin = async (assetData: AssetData): Promise<AssetData> => {
   try {
-    const options: IConfig = await buildAssetPluginConfig();
+    if (!options) {
+      options = await buildAssetPluginConfig()
+      const _gitignore = path.join(process.cwd(), options.imageminDir, '.gitignore')
+      try {
+        await fs.access(_gitignore);
+      } catch (error) {
+        await fs.mkdir(path.join(process.cwd(), options.imageminDir))
+        await fs.writeFile(_gitignore, '*')
+      }
+    }
 
     // TODO:excludes ? 
     if (!/node_modules/.test(assetData.fileSystemLocation)) {
@@ -52,4 +52,4 @@ const _imageminAssetPlugin = async (assetData: AssetData): Promise<AssetData> =>
   return assetData;
 }
 
-module.exports =  _imageminAssetPlugin;
+module.exports = _imageminAssetPlugin;

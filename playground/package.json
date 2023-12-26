@@ -15,13 +15,11 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.72.5",
+    "react-native-imagemin-asset-plugin": "file:..",
     "react-native-web": "~0.19.6"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
-  },
-  "localDependencies": {
-    "react-native-imagemin-asset-plugin": ".."
   },
   "private": true
 }

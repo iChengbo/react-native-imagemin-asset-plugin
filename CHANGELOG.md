@@ -1,5 +1,22 @@
-## [1.5.1](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.5.0...v1.5.1) (2023-12-27)
+# [2.0.0-alpha.1](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.5.0...v2.0.0-alpha.1) (2023-12-26)
 
+
+### Bug Fixes
+
+* print error message ([be37d53](https://github.com/iChengbo/react-native-imagemin-asset-plugin/commit/be37d531b2c018e7837c96584abeac03de50093c))
+
+
+### Code Refactoring
+
+* modify usage and implementation ([287d8bf](https://github.com/iChengbo/react-native-imagemin-asset-plugin/commit/287d8bf881ad5988866578f2bece52d55d24bb34))
+
+
+### BREAKING CHANGES
+
+* modify the defined configuration and remove the dependencies of imagemin-related plugins from within
+
+
+## [1.5.1](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.5.0...v1.5.1) (2023-12-27)
 
 ### Bug Fixes
 

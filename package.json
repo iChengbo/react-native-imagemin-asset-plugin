@@ -1,6 +1,6 @@
 {
   "name": "react-native-imagemin-asset-plugin",
-  "version": "1.5.1",
+  "version": "2.0.0-alpha.1",
   "description": "Asset plugin for compress/convert images in React Native",
   "main": "dist/lib/index.js",
   "types": "dist/types",
@@ -31,8 +31,7 @@
     "url": "https://github.com/iChengbo/react-native-imagemin-asset-plugin/issues"
   },
   "homepage": "https://github.com/iChengbo/react-native-imagemin-asset-plugin#readme",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",

@@ -11,40 +11,71 @@
 
 > Minify PNG, JPG, JPEG images or convert them to WEBP image with [imagemin](https://github.com/imagemin/imagemin)
 
-<img width="414px" src="https://github.com/iChengbo/react-native-imagemin-asset-plugin/blob/next/example.png?raw=true" alt="example" />
+<img width="414px" src="https://github.com/iChengbo/react-native-imagemin-asset-plugin/blob/master/example.png?raw=true" alt="example" />
 
-## Usage
-
-### Step 1: Install
+## Install
 
 ```sh
-yarn add -D react-native-imagemin-asset-plugin
+yarn add -D react-native-imagemin-asset-plugin imagemin
 ```
 
 or
 
 ```sh
-npm install --save-dev react-native-imagemin-asset-plugin
+npm install --save-dev react-native-imagemin-asset-plugin imagemin
 ```
 
-### Step 2: Configure `metro.config.js`
+> **Warning**
+>
+> imagemin uses plugin to optimize/generate images, so you need to install them too
 
-Add `react-native-imagemin-asset-plugin` to the list of `assetPlugins` in your `metro.config.js` file under the transformer section.
+## Configuration
 
-For example;
+You can configure the plugin behaviour through the optional `imageminAssetPlugin` field in your `metro.config.js` file under the `transformer` section.
 
-> React Native Cli
+Explore the options to get the best result for you.
+
+**Recommended imagemin plugins for lossless optimization**
+
+```sh
+npm install imagemin-gifsicle imagemin-jpegtran imagemin-optipng imagemin-svgo --save-dev
+```
+
+**Recommended imagemin plugins for lossy optimization**
+
+```sh
+npm install imagemin-gifsicle imagemin-mozjpeg imagemin-pngquant imagemin-svgo --save-dev
+```
+
+For `imagemin-svgo` v9.0.0+ need use svgo [configuration](https://github.com/svg/svgo#configuration)
+
+
+**metro.config.js (React Native Cli)**
 
 ```js
 module.exports = {
   transformer: {
     // ...
     assetPlugins: ['react-native-imagemin-asset-plugin'],
+    imageminAssetPlugin: {
+      cacheDir: '.compressed-images',
+      minimizer: {
+        implementation: 'imagemin',
+        options: {
+          // Lossless optimization with custom option
+          // Feel free to experiment with options for better result for you
+          plugins: [
+            ["gifsicle", { interlaced: true }],
+            ["jpegtran", { progressive: true }],
+            ['pngquant'],
+          ]
+        }
+      }
+    },
   },
 };
 ```
-
-> Expo Go
+**metro.config.js (Expo Go)**
 
 ```js
 // Learn more https://docs.expo.io/guides/customizing-metro
@@ -54,47 +85,25 @@ const { getDefaultConfig } = require('expo/metro-config');
 const config = getDefaultConfig(__dirname);
 
 // use plugin to compress assets
-config.transformer.assetPlugins.push('react-native-imagemin-asset-plugin')
+config.transformer.assetPlugins.push('react-native-imagemin-asset-plugin');
+config.transformer.imageminAssetPlugin = {
+  cacheDir: '.compressed-images',
+  minimizer: {
+    implementation: 'imagemin',
+    options: {
+      // Lossless optimization with custom option
+      // Feel free to experiment with options for better result for you
+      plugins: [
+        ["gifsicle", { interlaced: true }],
+        ["jpegtran", { progressive: true }],
+        ['pngquant'],
+      ]
+    }
+  }
+}
 
 module.exports = config;
 ```
-
-## Configuration
-
-You can configure the plugin behaviour through the optional `imageminAssetPlugin` field in your `metro.config.js` file under the `transformer` section.
-
-For example;
-
-```js
-module.exports = {
-  transformer: {
-    // ...
-    assetPlugins: ['react-native-imagemin-asset-plugin'],
-    imageminAssetPlugin: {
-      imageminDir: '.compressed-images',
-      pngquant: {
-        quality: [0.6, 0.8],
-      },
-      mozjpeg: {
-        quality: 60,
-      },
-    },
-  },
-};
-```
-
-| Option                     | Description                                   | Reference                                     |
-| -------------------------- | --------------------------------------------- | --------------------------------------------- |
-| imageminDir                | Name of directory to store compressed images. | Default: `.shrunken`                          |
-| giflossy<br />(deprecated) | (Lossy) Compress GIF images                   | https://github.com/imagemin/imagemin-giflossy |
-| gifsicle                   | (Lossless) Compress GIF images                | https://github.com/imagemin/imagemin-gifsicle |
-| mozjpeg                    | (Lossy) Compress JPEG images                  | https://github.com/imagemin/imagemin-mozjpeg  |
-| jpegtran                   | (Lossless) Compress JPEG images               | https://github.com/imagemin/imagemin-jpegtran |
-| pngquant                   | (Lossy) Compress PNG images                   | https://github.com/imagemin/imagemin-pngquant |
-| optipng                    | (Lossless) Compress PNG images                | https://github.com/imagemin/imagemin-optipng  |
-| svgo                       | (Lossy) Compress SVG images                   | https://github.com/imagemin/imagemin-svgo     |
-| webp                       | Compress JPG & PNG images into WEBP           | https://github.com/imagemin/imagemin-webp     |
-
 
 ## LICENSE
 

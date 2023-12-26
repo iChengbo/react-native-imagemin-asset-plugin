@@ -1,3 +1,15 @@
+# [1.5.0](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.4.1...v1.5.0) (2023-12-26)
+
+
+### Bug Fixes
+
+* remove warning ([67cb025](https://github.com/iChengbo/react-native-imagemin-asset-plugin/commit/67cb025891d6f899ef52facb81280cfe430262a8))
+
+
+### Features
+
+* deprecate giflossy & update readme ([98e382b](https://github.com/iChengbo/react-native-imagemin-asset-plugin/commit/98e382b9ca17be7da45f7c74819753dc6284e2fe))
+
 ## [1.4.1](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.4.0...v1.4.1) (2023-10-07)
 
 

@@ -32,16 +32,6 @@
   },
   "homepage": "https://github.com/iChengbo/react-native-imagemin-asset-plugin#readme",
   "dependencies": {
-    "imagemin": "7.0.1"
-  },
-  "optionalDependencies": {
-    "imagemin-gifsicle": "^7.0.0",
-    "imagemin-jpegtran": "^7.0.0",
-    "imagemin-mozjpeg": "^9.0.0",
-    "imagemin-optipng": "^8.0.0",
-    "imagemin-pngquant": "^9.0.2",
-    "imagemin-svgo": "^9.0.0",
-    "imagemin-webp": "^6.1.0"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
@@ -54,6 +44,14 @@
     "@types/imagemin-pngquant": "^8.0.0",
     "@types/imagemin-svgo": "^10.0.5",
     "@types/imagemin-webp": "^7.0.1",
+    "imagemin": "7.0.1",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-jpegtran": "^7.0.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-svgo": "^9.0.0",
+    "imagemin-webp": "^6.1.0",
     "metro": "^0.80.2",
     "rimraf": "^5.0.5",
     "semantic-release": "^22.0.5",

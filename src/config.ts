@@ -1,4 +1,4 @@
-import Metro from 'metro';
+import path from 'path';
 
 import type { Plugin } from 'imagemin';
 import type { Options as MozjpegOptions } from 'imagemin-mozjpeg';
@@ -40,15 +40,22 @@ export const defaultConfig: IConfig = {
  * @returns {Promise<IConfig>}
  */
 export const buildAssetPluginConfig = async (): Promise<IConfig> => {
-  const metroConfig = await Metro.loadConfig();
+  const metroConfigPath = path.join(process.cwd(), 'metro.config.js')
+  let metroConfig;
+  try {
+    metroConfig = require(metroConfigPath);
+  } catch {
+    metroConfig = {};
+  }
   const transformerOptions = metroConfig.transformer || {};
-  /**
-   * FIXME: will result in a warning
-   * `Unknown option "server.runInspectorProxy" with value true was found.
-   * This is probably a typing mistake. Fixing it will remove this message.`
-   */
-  // @ts-ignore
-  return Object.assign({}, defaultConfig, transformerOptions.imageminAssetPlugin);
+  const imageminAssetPluginOptions = transformerOptions.imageminAssetPlugin || {};
+
+  const config = {
+    ...defaultConfig,
+    ...imageminAssetPluginOptions,
+  }
+
+  return config;
 }
 
 /**

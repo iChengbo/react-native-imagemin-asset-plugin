@@ -11,7 +11,7 @@
 
 > Minify PNG, JPG, JPEG images or convert them to WEBP image with [imagemin](https://github.com/imagemin/imagemin)
 
-<img width="414px" src="https://github.com/iChengbo/react-native-imagemin-asset-plugin/blob/master/example.png?raw=true" alt="example" />
+<img width="414px" src="./example.png?raw=true" alt="example" />
 
 ## Install
 

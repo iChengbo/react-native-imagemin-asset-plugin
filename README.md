@@ -31,7 +31,7 @@ npm install --save-dev react-native-imagemin-asset-plugin imagemin
 
 ## Configuration
 
-You can configure the plugin behaviour through the optional `imageminAssetPlugin` field in your `metro.config.js` file under the `transformer` section.
+You can configure the plugin behaviour through the optional `assetPlugins` field in your `metro.config.js` file under the `transformer` section.
 
 Explore the options to get the best result for you.
 

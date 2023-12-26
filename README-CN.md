@@ -11,37 +11,40 @@
 
 <img width="414px" src="./example.png?raw=true" alt="example" />
 
-## 使用
-
-### 步骤 1: 安装
+## 安装
 
 ```sh
-yarn add -D react-native-imagemin-asset-plugin
+yarn add -D react-native-imagemin-asset-plugin imagemin
 ```
 
 or
 
 ```sh
-npm install --save-dev react-native-imagemin-asset-plugin
-```
-
-### 步骤 2: 配置 `metro.config.js`
-
-如下，修改 `metro.config.js` 文件，在 `transformer` 中添加 `assetPlugins` 属性，并设置为 `['react-native-imagemin-asset-plugin']`
-
-```js
-module.exports = {
-  transformer: {
-    // ...
-    assetPlugins: ['react-native-imagemin-asset-plugin'],
-  },
-};
+npm install --save-dev react-native-imagemin-asset-plugin imagemin
 ```
 
 ## 配置
 
-如下，可以在 `metro.config.js` 文件的 `transformer` 属性中添加 `imageminAssetPlugin` 以自定义插件的功能。
+你可以通过修改 `metro.config.js` 文件，在 `transformer` 中添加 `assetPlugins` 属性，并设置为 `['react-native-imagemin-asset-plugin']`
 
+根据需求选择不同的压缩方式，有以下两种搭配供参考：
+
+**推荐用于无损优化的 imagemin 插件**
+
+```sh
+npm install imagemin-gifsicle imagemin-jpegtran imagemin-optipng imagemin-svgo --save-dev
+```
+
+**推荐用于有损优化的 imagemin 插件**
+
+```sh
+npm install imagemin-gifsicle imagemin-mozjpeg imagemin-pngquant imagemin-svgo --save-dev
+```
+
+对于 `imagemin-svgo` v9.0.0+ 需要使用 svgo [配置](https://github.com/svg/svgo#configuration)
+
+
+**metro.config.js (React Native Cli)**
 
 ```js
 module.exports = {
@@ -49,30 +52,52 @@ module.exports = {
     // ...
     assetPlugins: ['react-native-imagemin-asset-plugin'],
     imageminAssetPlugin: {
-      imageminDir: '.compressed-images',
-      pngquant: {
-        quality: [0.6, 0.8],
-      },
-      mozjpeg: {
-        quality: 60,
-      },
+      cacheDir: '.compressed-images',
+      minimizer: {
+        implementation: 'imagemin',
+        options: {
+          // Lossless optimization with custom option
+          // Feel free to experiment with options for better result for you
+          plugins: [
+            ["gifsicle", { interlaced: true }],
+            ["jpegtran", { progressive: true }],
+            ['pngquant'],
+          ]
+        }
+      }
     },
   },
 };
 ```
+**metro.config.js (Expo Go)**
 
-| 属性      | 描述                                   | 参考                                                    |
-| ----------- | --------------------------------------------- | ------------------------------------------------------------ |
-| imageminDir | 存储压缩后图片的临时文件夹 | Default: `.shrunken` |
-| giflossy<br />(deprecated) | （有损）压缩 GIF 格式图片                       | https://github.com/imagemin/imagemin-giflossy |
-| gifsicle | （无损）压缩 GIF 格式图片                     | https://github.com/imagemin/imagemin-gifsicle |
-| mozjpeg     | （有损）压缩 JPEG 格式图片                    | https://github.com/imagemin/imagemin-mozjpeg  |
-| jpegtran    | （无损）压缩 JPEG 格式图片                    | https://github.com/imagemin/imagemin-jpegtran |
-| pngquant    | （有损）压缩 PNG 格式图片                     | https://github.com/imagemin/imagemin-pngquant |
-| optipng     | （无损）压缩 PNG 格式图片                     | https://github.com/imagemin/imagemin-optipng  |
-| svgo | （有损）压缩 SVG 格式图片                     | https://github.com/imagemin/imagemin-svgo     |
-| webp<br /> | 压缩 JPG & PNG 格式图片 为 WEBP 格式图片  | https://github.com/imagemin/imagemin-webp     |
+```js
+// Learn more https://docs.expo.io/guides/customizing-metro
+const { getDefaultConfig } = require('expo/metro-config');
 
+/** @type {import('expo/metro-config').MetroConfig} */
+const config = getDefaultConfig(__dirname);
+
+// use plugin to compress assets
+config.transformer.assetPlugins.push('react-native-imagemin-asset-plugin');
+config.transformer.imageminAssetPlugin = {
+  cacheDir: '.compressed-images',
+  minimizer: {
+    implementation: 'imagemin',
+    options: {
+      // Lossless optimization with custom option
+      // Feel free to experiment with options for better result for you
+      plugins: [
+        ["gifsicle", { interlaced: true }],
+        ["jpegtran", { progressive: true }],
+        ['pngquant'],
+      ]
+    }
+  }
+}
+
+module.exports = config;
+```
 
 ## LICENSE
 

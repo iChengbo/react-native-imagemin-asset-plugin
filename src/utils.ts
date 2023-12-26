@@ -4,17 +4,6 @@ import type { Plugin } from 'imagemin';
 
 import { ImageminMinimizer } from './config';
 
-class InvalidConfigError extends Error {
-  /**
-   * @param {string | undefined} message
-   */
-  constructor(message?: string) {
-    super(message);
-
-    this.name = "InvalidConfigError";
-  }
-}
-
 /**
  * Generate a .gitignore file in the specified directory if it doesn't already exist.
  * @param dir - The directory where the .gitignore file should be created.
@@ -42,9 +31,9 @@ export const imageminNormalizeConfig = async (imageminConfig: ImageminMinimizer[
     !imageminConfig.plugins ||
     (imageminConfig.plugins && imageminConfig.plugins.length === 0)
   ) {
-    throw new Error(
-      "No plugins found for `imagemin`, please read documentation"
-    );
+    const message = 'No plugins found for `imagemin`, please read documentation';
+    logError(message);
+    return []
   }
 
   const plugins: Plugin[] = [];
@@ -74,19 +63,39 @@ export const imageminNormalizeConfig = async (imageminConfig: ImageminMinimizer[
             ? pluginName
             : `imagemin-${pluginName}`;
 
-          throw new Error(
-            `Unknown plugin: ${pluginNameForError}\n\nDid you forget to install the plugin?\nYou can install it with:\n\n$ npm install ${pluginNameForError} --save-dev\n$ yarn add ${pluginNameForError} --dev`
-          );
+          const message = `Unknown plugin: ${pluginNameForError}\n\nDid you forget to install the plugin?\nYou can install it with:\n\n$ npm install ${pluginNameForError} --save-dev\n$ yarn add ${pluginNameForError} --dev`
+          logError(message)
         }
       }
       plugins.push(requiredPlugin);
     } else {
-      throw new InvalidConfigError(
-        `Invalid plugin configuration '${JSON.stringify(
-          plugin
-        )}', plugin configuration should be 'string' or '[string, object]'"`
-      );
+      const message = `Invalid plugin configuration '${JSON.stringify(plugin)}', plugin configuration should be 'string' or '[string, object]'"`
+      logError(message)
     }
   }
   return plugins;
 }
+
+/**
+ * Returns a debounced version of the input function.
+ * The debounced function will wait for a specified delay before invoking the original function.
+ *
+ * @param func - The function to be debounced.
+ * @param delay - The delay in milliseconds.
+ * @returns The debounced function.
+ */
+const debounce = (func: (...args: any[]) => void, delay: number): ((...args: any[]) => void) => {
+  let timeoutId: ReturnType<typeof setTimeout>;
+
+  return (...args: any[]) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func(...args);
+    }, delay);
+  };
+};
+
+const logError = debounce((message: string) => {
+  console.log('\x1B[31m%s\x1B[0m', '\n> An exception occurs in "react-native-imagemin-asset-plugin", which may cause compression of assets to fail.');
+  console.log('\x1B[31m%s\x1B[0m', message)
+}, 2000);

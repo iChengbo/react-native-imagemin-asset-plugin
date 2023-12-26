@@ -1,13 +1,13 @@
-import path from 'path'
-import fs from 'fs/promises'
+import path from 'path';
 
-import type { AssetData } from 'metro'
-import imagemin from 'imagemin'
+import type { AssetData } from 'metro';
+import imagemin from 'imagemin';
 
-import { buildAssetPluginConfig, buildImageminPlugins } from './config'
-import type { IConfig } from './config'
+import type { IConfig, ImageminMinimizer } from './config';
+import { buildConfig } from './config';
+import { generateGitignoreFile, imageminNormalizeConfig } from './utils';
 
-let options: IConfig
+let _config: IConfig
 
 /**
  * imagemin assetPlugin
@@ -16,34 +16,41 @@ let options: IConfig
  */
 const _imageminAssetPlugin = async (assetData: AssetData): Promise<AssetData> => {
   try {
-    if (!options) {
-      options = await buildAssetPluginConfig()
-      const _gitignore = path.join(process.cwd(), options.imageminDir, '.gitignore')
-      try {
-        await fs.access(_gitignore);
-      } catch (error) {
-        await fs.mkdir(path.join(process.cwd(), options.imageminDir))
-        await fs.writeFile(_gitignore, '*')
-      }
+    if (!_config) {
+      _config = await buildConfig()
+      await generateGitignoreFile(_config.cacheDir)
     }
 
-    // TODO:excludes ? 
-    if (!/node_modules/.test(assetData.fileSystemLocation)) {
-      const outputDirectory = path.join(
-        process.cwd(),
-        options.imageminDir,
-        // assetData.httpServerLocation
-      );
-      if (options.test.test(assetData.files[0])) {
-        const tmpFiles = await imagemin(assetData.files, {
-          destination: outputDirectory,
-          plugins: buildImageminPlugins(options),
-        });
-        const outFiles = tmpFiles.map(file => file.destinationPath);
-        return {
-          ...assetData,
-          files: outFiles,
-        };
+    const {
+      cacheDir,
+      test,
+      minimizer,
+      include,
+      exclude = 'node_modules'
+    } = _config
+
+    const excludeRegexp = new RegExp(exclude)
+
+    if (!excludeRegexp.test(assetData.fileSystemLocation)) {
+      const outputDirectory = path.join(process.cwd(), cacheDir);
+
+      if (test.test(assetData.files[0])) {
+        const { implementation = 'imagemin', options = [] } = minimizer ?? {}
+
+        if (implementation === 'imagemin') {
+          // TODO: refactor and remove it to utils.ts
+          const plugins = await imageminNormalizeConfig(options as ImageminMinimizer['options'])
+          const tmpFiles = await imagemin(assetData.files, {
+            destination: outputDirectory,
+            plugins,
+          });
+          const outFiles = tmpFiles.map(file => file.destinationPath);
+          return {
+            ...assetData,
+            files: outFiles,
+          };
+        }
+        // TODO: handle sharp implementation
       }
     }
   } catch (error) {

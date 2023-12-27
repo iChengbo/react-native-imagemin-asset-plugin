@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.5.0...v1.5.1) (2023-12-27)
+
+
+### Bug Fixes
+
+* build package before executing semantic-release ([403d26b](https://github.com/iChengbo/react-native-imagemin-asset-plugin/commit/403d26b862bd695c30219eb926dd21264ed68b9b))
+
 # [1.5.0](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.4.1...v1.5.0) (2023-12-26)
 
 

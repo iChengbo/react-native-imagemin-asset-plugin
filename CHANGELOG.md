@@ -1,12 +1,32 @@
-## [1.5.2](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.5.1...v1.5.2) (2023-12-29)
-
+# [2.0.0-alpha.1](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.5.1...v2.0.0-alpha.1) (2023-12-28)
 
 ### Bug Fixes
 
-* add example.png to build files ([5d63351](https://github.com/iChengbo/react-native-imagemin-asset-plugin/commit/5d63351ec2843820b49ba6ee55884a9f3b332874))
+* move imagemin to dependencies ([0c8d0f1](https://github.com/iChengbo/react-native-imagemin-asset-plugin/commit/0c8d0f195679547f657da905015ab4da96a603a3))
+* print error message ([cd8b64c](https://github.com/iChengbo/react-native-imagemin-asset-plugin/commit/cd8b64ce70614a06aac7630fad4e7611dfd33bb3))
+
+
+### Code Refactoring
+
+* modify usage and implementation ([859dfee](https://github.com/iChengbo/react-native-imagemin-asset-plugin/commit/859dfee857f06a053c6eae7d57d4244a3c9e86b5))
+
+
+### Performance Improvements
+
+* remove the dependency on imagemin ([053431e](https://github.com/iChengbo/react-native-imagemin-asset-plugin/commit/053431ec4fcd9c41c335441c6804279cc93d3ced))
+
+
+### BREAKING CHANGES
+
+* the dependency on imagemin is changed to be imported from outside
+* modify the defined configuration and remove the dependencies of imagemin-related plugins from within
+
+## [1.5.2](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.5.1...v1.5.2) (2023-12-29)
+### Bug Fixes
+
+* add example.png to build files ([3a8e963](https://github.com/iChengbo/react-native-imagemin-asset-plugin/commit/3a8e96362646f46b79412e3be717137a3ecd13af))
 
 ## [1.5.1](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.5.0...v1.5.1) (2023-12-27)
-
 
 ### Bug Fixes
 

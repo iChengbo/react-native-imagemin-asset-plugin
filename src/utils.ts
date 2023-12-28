@@ -1,6 +1,7 @@
 import path from 'path';
 import fs from 'fs/promises';
 import type { Plugin } from 'imagemin';
+import { AssetData } from 'metro';
 
 import { ImageminMinimizer } from './config';
 
@@ -16,6 +17,36 @@ export const generateGitignoreFile = async (dir: string) => {
     const directoryPath = path.join(process.cwd(), dir);
     await fs.mkdir(directoryPath)
     await fs.writeFile(gitignorePath, '*')
+  }
+}
+
+/**
+ * Runs imagemin on the given asset data and generates optimized image files.
+ * 
+ * @param assetData - The asset data containing the files to be optimized.
+ * @param outputDirPath - The output directory path where the optimized files will be saved.
+ * @param minimizerOptions - The options for the imagemin minimizer.
+ * @returns The modified asset data with the optimized files.
+ */
+export const imageminGenerate = async (assetData: AssetData, outputDirPath: string, minimizerOptions: ImageminMinimizer['options']) => {
+  const plugins = await imageminNormalizeConfig(minimizerOptions || {});
+
+  let outFiles = assetData.files;
+  try {
+    const imagemin = (await import("imagemin")).default;
+    const tmpFiles = await imagemin(assetData.files, {
+      destination: outputDirPath,
+      plugins,
+    });
+    outFiles = tmpFiles.map(file => file.destinationPath);
+  } catch (error) {
+    // FIXME: Error [ERR_REQUIRE_ESM]: require() of ES Module ...
+    logError(error)
+  }
+
+  return {
+    ...assetData,
+    files: outFiles
   }
 }
 
@@ -45,27 +76,15 @@ export const imageminNormalizeConfig = async (imageminConfig: ImageminMinimizer[
       const pluginOptions = isPluginArray ? plugin[1] : undefined;
 
       let requiredPlugin = null;
-      let requiredPluginName = `imagemin-${pluginName}`;
+      let requiredPluginName = pluginName.startsWith('imagemin-') ? pluginName : `imagemin-${pluginName}`;
 
       try {
         requiredPlugin = (await import(requiredPluginName)).default(
           pluginOptions
         );
       } catch {
-        requiredPluginName = pluginName;
-
-        try {
-          requiredPlugin = (await import(requiredPluginName)).default(
-            pluginOptions
-          );
-        } catch {
-          const pluginNameForError = pluginName.startsWith("imagemin")
-            ? pluginName
-            : `imagemin-${pluginName}`;
-
-          const message = `Unknown plugin: ${pluginNameForError}\n\nDid you forget to install the plugin?\nYou can install it with:\n\n$ npm install ${pluginNameForError} --save-dev\n$ yarn add ${pluginNameForError} --dev`
-          logError(message)
-        }
+        const message = `Unknown plugin: ${requiredPluginName}\n\nDid you forget to install the plugin?\nYou can install it with:\n\n$ npm install ${requiredPluginName} --save-dev\n$ yarn add ${requiredPluginName} --dev`
+        logError(message)
       }
       plugins.push(requiredPlugin);
     } else {

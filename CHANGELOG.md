@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.5.1...v1.5.2) (2023-12-29)
+
+
+### Bug Fixes
+
+* add example.png to build files ([5d63351](https://github.com/iChengbo/react-native-imagemin-asset-plugin/commit/5d63351ec2843820b49ba6ee55884a9f3b332874))
+
 ## [1.5.1](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.5.0...v1.5.1) (2023-12-27)
 
 

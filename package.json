@@ -11,8 +11,7 @@
     "test": "cd playground && npx expo export"
   },
   "files": [
-    "dist",
-    "example.png"
+    "dist"
   ],
   "keywords": [
     "react-native",

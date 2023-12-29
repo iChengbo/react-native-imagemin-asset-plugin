@@ -9,7 +9,7 @@
 
 > 使用 [imagemin](https://github.com/imagemin/imagemin) 完美压缩 PNG, JPG, JPEG 格式图片或者将其转为 WEBP 格式图片。
 
-<img width="414px" src="./example.png?raw=true" alt="example" />
+<img width="414px" src="https://github.com/iChengbo/react-native-imagemin-asset-plugin/blob/master/example.png?raw=true" alt="example" />
 
 ## 安装
 

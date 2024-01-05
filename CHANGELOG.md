@@ -1,3 +1,10 @@
+## [1.5.3](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.5.2...v1.5.3) (2024-01-05)
+
+
+### Bug Fixes
+
+* remove example.png from pkg files ([24be925](https://github.com/iChengbo/react-native-imagemin-asset-plugin/commit/24be925483145bac7c6fc0b4cf05c3d55e697ef7))
+
 ## [1.5.2](https://github.com/iChengbo/react-native-imagemin-asset-plugin/compare/v1.5.1...v1.5.2) (2023-12-29)
 
 

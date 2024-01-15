@@ -45,7 +45,7 @@
     "imagemin-webp": "^6.1.0",
     "metro": "^0.80.2",
     "rimraf": "^5.0.5",
-    "semantic-release": "^22.0.12",
+    "semantic-release": "^23.0.0",
     "typescript": "^5.3.3"
   }
 }

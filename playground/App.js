@@ -22,38 +22,59 @@ const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#ddd' }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#eee' }}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center' }}>
+        <Image
+          source={require('./assets/boat.png')}
+          style={styles.boatImage}
+        />
+        <Text style={styles.boatText}>
+          ORIGINAL PNG&nbsp;
+          <Text style={{ color: 'red' }}>1.1 MB</Text>
+        </Text>
+        {/* <Text style={styles.boatText}>
+          TINIFY PNG&nbsp;
+          <Text style={{ color: 'red' }}>302 KB</Text>
+        </Text> */}
+      </View>
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text style={styles.antText}>Okay, the first thing we should do...is give a <Text style={{ fontWeight: 'bold', color: '#faad14' }}>Star</Text>.</Text>
+        <View style={{ height: 10 }}></View>
         <Image
-          source={require('./assets/original_panda.png')}
-          style={styles.img}
-        />
-        <Text style={{ marginTop: 5 }}>
-          Original transparent PNG&nbsp;
-          <Text style={{ fontWeight: 'bold', color: 'red' }}>57KB</Text>
-        </Text>
-        <View style={{ height: 20 }} />
-        <Image
-          source={require('./assets/shrunk_panda.png')}
-          style={styles.img}
-        />
-        <Text style={{ marginTop: 5 }}>
-          Shrunk transparent PNG&nbsp;
-          <Text style={{ fontWeight: 'bold', color: 'red' }}>16KB</Text>
-        </Text>
+          source={require('./assets/ant_man.png')}
+          resizeMode='contain'
+          style={styles.antImage}
+        ></Image>
       </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  img: {
+  boatImage: {
     borderWidth: 5,
     borderColor: '#fff',
-    width: 180,
-    height: 180,
-  }
+    width: 320,
+    height: 200,
+    marginBottom: 5
+  },
+  boatText: {
+    color: '#000',
+    fontWeight: 'bold',
+  },
+  antText: {
+    color: '#666',
+    width: 220,
+    borderColor: '#fff',
+    borderWidth: 5,
+    borderRadius: 5,
+    backgroundColor: '#fff'
+  },
+  antImage: {
+    height: 160,
+    width: 100
+  },
 })
 
 export default App;

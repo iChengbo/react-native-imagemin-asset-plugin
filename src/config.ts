@@ -24,7 +24,7 @@ export interface IConfig {
 
 export const defaultConfig: IConfig = {
   test: /\.(png|jpg|jpeg)$/, // TODO:RegExp, minimatch glob ...
-  cacheDir: '.shrunken',
+  cacheDir: '.assets-cache',
 };
 
 /**

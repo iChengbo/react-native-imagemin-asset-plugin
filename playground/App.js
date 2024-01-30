@@ -16,7 +16,10 @@ import {
   View,
   Image,
   StyleSheet,
+  Dimensions,
 } from 'react-native';
+
+const windowWidth = Dimensions.get('window').width;
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -25,6 +28,7 @@ const App = () => {
     <SafeAreaView style={{ flex: 1, backgroundColor: '#eee' }}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center' }}>
+        <Text style={styles.intro}>Metro Asset plugin for compressing images in React Native.</Text>
         <Image
           source={require('./assets/boat.png')}
           style={styles.boatImage}
@@ -52,12 +56,20 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
+  intro: {
+    fontSize: 20,
+    textAlign: 'center',
+    marginBottom: 16,
+    color: '#000',
+    fontWeight: 'bold',
+    marginHorizontal: 10,
+  },
   boatImage: {
     borderWidth: 5,
     borderColor: '#fff',
-    width: 320,
-    height: 200,
-    marginBottom: 5
+    width: windowWidth - 10,
+    height: 260,
+    marginBottom: 5,
   },
   boatText: {
     color: '#000',

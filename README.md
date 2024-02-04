@@ -7,6 +7,8 @@
 
 [简体中文](https://github.com/iChengbo/react-native-imagemin-asset-plugin/blob/next/README-CN.md)
 
+[v1.x README](https://github.com/iChengbo/react-native-imagemin-asset-plugin/blob/1.x/README.md)
+
 **Metro Asset plugin for compressing images in React Native.**
 
 > Minify PNG, JPG, JPEG images or convert them to WEBP image with [imagemin](https://github.com/imagemin/imagemin)

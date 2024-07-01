@@ -35,7 +35,7 @@
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@types/imagemin": "^8.0.1",
-    "imagemin": "^7.0.1",
+    "imagemin": "^9.0.0",
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-jpegtran": "^7.0.0",
     "imagemin-mozjpeg": "^9.0.0",
